@@ -10,12 +10,12 @@ export const router = createRouter({
         },
         {
             path: "/about",
-            name: "about"
+            name: "about",
             component: AboutPage
         },
         {
             path: "/contacts",
-            name: "contacts"
+            name: "contacts",
             component: ContactsPage
         },
 
