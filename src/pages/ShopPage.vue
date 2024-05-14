@@ -5,9 +5,18 @@
 </template>
 
 <script>
-    export default {
-        
+import { store } from '../store';
+
+export default {
+    data () {
+        return {
+            store,
+        }
+    },
+    created() {
+        store.isHeaderHome = false;
     }
+}
 </script>
 
 <style lang="scss" scoped>

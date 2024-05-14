@@ -66,7 +66,7 @@ export default {
 
                     <ul class="d-flex align-items-center gap-5">
                         <li class="d-flex align-items-center ms_nav" v-for="link in navList">
-                            <router-link :to="{ name: link.link }" class="nav-link" @click="link.link != 'home' ? store.isHeaderHome = false : store.isHeaderHome = true">{{ link.title.toUpperCase()
+                            <router-link :to="{ name: link.link }" class="nav-link">{{ link.title.toUpperCase()
                                 }}</router-link>
                             <div class="sub-menu-container">
                                 <div class="sub-menu">
@@ -97,6 +97,9 @@ export default {
 
 .header-normal {
     position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
     z-index: 999;
 }
 
