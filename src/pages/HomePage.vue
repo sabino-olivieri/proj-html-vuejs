@@ -1,8 +1,10 @@
 <script>
 import AppCarouselBanner from "../components/AppCarouselBanner.vue";
+import AppOurSpecialties from "../components/AppOurSpecialties.vue";
 export default {
   components: {
     AppCarouselBanner,
+    AppOurSpecialties
   },
   data() {
     return {
@@ -24,16 +26,46 @@ export default {
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum natus, laborum rerum est labore molestiae quidem hic nemo vitae dolorum odio at aliquid dolores sed dignissimos velit perferendis distinctio non?",
         },
       ],
+      ourSpecialtiesItem: [
+        {
+          image: "svg-1.svg",
+          subtitle: "knowing",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+        },
+        {
+          image: "svg-2.svg",
+          subtitle: "Selling",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+        },
+        {
+          image: "svg-3.svg",
+          subtitle: "Learning",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+        },
+        {
+          image: "svg-4.svg",
+          subtitle: "Contact",
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+        },
+
+      ]
     };
   },
 };
 </script>
 
 <template>
-  <div>
+  <div class="homePage">
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
+    <AppOurSpecialties :itemArray="ourSpecialtiesItem"/>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.homePage{
+  background-color: var(--ms-secondary-color);
+}
+
+</style>

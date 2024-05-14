@@ -15,6 +15,14 @@
     --ms-secondary-color: #a7a7a7;
 }
 
+// COMMONS
+ul{
+    padding: 0;
+    li{
+        list-style-type: none;
+    }
+}
+
 a{
     text-decoration: none;
     color: white;
@@ -38,4 +46,9 @@ img {
     padding: 15px 50px;
     background-color: orangered;
     color: white;
+}
+
+.ms-container-90{
+    width: 90%;
+    margin: 0 auto;
 }
