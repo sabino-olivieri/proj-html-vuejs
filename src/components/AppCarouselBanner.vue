@@ -39,15 +39,15 @@ export default {
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="info gap-3">
-            <h1>Titolo</h1>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum natus, laborum rerum est labore molestiae quidem hic nemo vitae dolorum odio at aliquid dolores sed dignissimos velit perferendis distinctio non?</span>
+            <h1>{{ array[this.activeIndex].title }}</h1>
+            <span>{{ array[this.activeIndex].content }}</span>
             <div class="btn-container d-flex gap-3 pt-3">
                 <a href="#" class="white-link">read more</a>
                 <a href="#" class="orange-link">purchase</a>
             </div>
         </div>
         <img
-          :src="getImagePath(array[this.activeIndex])"
+          :src="getImagePath(array[this.activeIndex].image)"
           class="d-block w-100"
           alt="..."
         />
