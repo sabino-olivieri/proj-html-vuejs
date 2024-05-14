@@ -1,5 +1,11 @@
 <script>
+import AppButton from '../components/AppButton.vue'
+
 export default {
+  components: {
+    AppButton,
+    AppButton,
+  },
   data() {
     return {
       icons: ['fa-solid fa-location-dot', 'fa-solid fa-phone', 'fa-regular fa-envelope'],
@@ -37,12 +43,13 @@ export default {
     <main>
       <!-- Hero  -->
       <div class="hero">
-        <!-- <h3>Una mappa interattiva per volantini</h3>
-        <div id="map" style="height:90vh;"></div> -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d342561.8659422793!2d12.13256246650666!3d45.32782109592909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1715695055673!5m2!1sit!2sit"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <!-- /Hero  -->
 
-      <div class="contact-us-top py-5">
+      <div class="contact-us-top">
         <div class="ms_title-top text-center">
           <h2>Contact us</h2>
           <p class="mx-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -97,7 +104,7 @@ export default {
                     <textarea name="" aria-label="Add your message" id="message" rows="3">Your Message</textarea>
                   </div>
 
-                  <button type="submit" class="btn btn-outline-light">SEND</button>
+                  <AppButton />
                 </form>
 
               </div>
@@ -116,9 +123,19 @@ export default {
 
 <style lang="scss" scoped>
 main {
+  margin-top: 100px;
   background-color: #fafafa;
 
+  .hero {
+
+    iframe {
+      width: 100%;
+      height: 80vh;
+    }
+  }
+
   .contact-us-top {
+    padding: 5rem 0;
 
     .ms_title-top {
 
@@ -141,6 +158,7 @@ main {
     .ms_footer-card {
       background-color: white;
       padding: 40px;
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 
       h3 {
         &::after {
@@ -159,6 +177,8 @@ main {
         margin: 20px 0;
 
         li {
+          margin-bottom: 10px;
+
           i {
             color: var(--ms-primary-color);
             margin-right: 8px;

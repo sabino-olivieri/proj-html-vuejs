@@ -95,6 +95,15 @@ footer {
     list-style-type: none;
     padding-left: 0;
 
+    li {
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    li:hover {
+      color: rgb(190, 190, 190);
+    }
+
     i {
       color: var(--ms-primary-color);
     }
@@ -106,8 +115,11 @@ footer {
     padding: 15px 0;
 
     a {
-      color: #eeeeee;
+      color: #dadada;
       text-decoration: none;
+      font-weight: normal;
+      font-size: 0.7rem;
+      letter-spacing: 0.3px;
     }
   }
 }
