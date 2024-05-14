@@ -37,7 +37,7 @@ export default {
 <template>
   <div id="carousel" class="carousel slide">
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div class="carousel-item active" :style="{ backgroundImage: `url(${getImagePath(array[this.activeIndex].image)})`}">
         <div class="info gap-3">
           <h1>
             {{ array[this.activeIndex].title }}
@@ -49,11 +49,7 @@ export default {
             <a href="#" class="orange-link">purchase</a>
           </div>
         </div>
-        <img
-          :src="getImagePath(array[this.activeIndex].image)"
-          class="d-block w-100"
-          alt="..."
-        />
+
       </div>
     </div>
     <button
@@ -87,39 +83,44 @@ export default {
 
 .carousel {
   position: relative;
+  height: 1080px;
+  max-height: 1080px;
 
-  i{
+  i {
     font-size: 40px;
-    color: black
+    color: black;
   }
+  .carousel-inner{
+    height: 100%;
 
-
-
-  .carousel-item {
-    @include flex(column, center, start);
-
-    .info {
-      position: absolute;
-      justify-content: space-between;
-      margin-left: 300px;
-
-      max-width: 40%;
-
-      h1 {
-        font-size: 80px;
-        i {
-          font-size: 15px;
-          color: var(--ms-primary-color);
+    
+      .carousel-item {
+        height: 100%;
+        @include flex(column, center, start);
+        background-size: cover;
+        
+    
+        .info {
+            @include flex(column, space-between,start);
+          position: absolute;
+          margin-left: 200px;
+    
+          max-width: 40%;
+    
+          h1 {
+            font-size: 80px;
+            i {
+              font-size: 15px;
+              color: var(--ms-primary-color);
+            }
+          }
+          span {
+            font-size: 20px;
+            color: var(--ms-secondary-color);
+          }
         }
       }
-      span {
-        font-size: 20px;
-      }
-    }
-    img {
-      max-height: 1080px;
-      object-fit: cover;
-    }
   }
+
 }
 </style>

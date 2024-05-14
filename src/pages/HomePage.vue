@@ -11,7 +11,7 @@ export default {
           image: "image-1.jpg",
           title: "Our Team",
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum natus, laborum rerum est labore molestiae quidem hic nemo vitae dolorum odio at aliquid dolores sed dignissimos velit perferendis distinctio non?",
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum natus, laborum",
         },
         {
           image: "image-2.png",
