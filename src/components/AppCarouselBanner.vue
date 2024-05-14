@@ -81,8 +81,8 @@ export default {
 
 .carousel {
   position: relative;
-  height: 1080px;
-  max-height: 1080px;
+  height: 100vh;
+//   max-height: 1080px;
 
   i {
     font-size: 40px;
