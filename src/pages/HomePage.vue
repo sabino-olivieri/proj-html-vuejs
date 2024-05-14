@@ -1,10 +1,12 @@
 <script>
 import AppCarouselBanner from "../components/AppCarouselBanner.vue";
 import AppOurSpecialties from "../components/AppOurSpecialties.vue";
+import AppEventsSection from "../components/AppEventsSection.vue";
 export default {
   components: {
     AppCarouselBanner,
-    AppOurSpecialties
+    AppOurSpecialties,
+    AppEventsSection
   },
   data() {
     return {
@@ -59,13 +61,14 @@ export default {
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
     <AppOurSpecialties :itemArray="ourSpecialtiesItem"/>
+    <AppEventsSection/>
   </div>
 </template>
 
 <style lang="scss" scoped>
 
 .homePage{
-  background-color: var(--ms-secondary-color);
+  background-color: rgb(250, 250, 250);
 }
 
 </style>

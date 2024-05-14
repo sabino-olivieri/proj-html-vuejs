@@ -35,7 +35,6 @@ export default {
 
 .ms-container-90 {
   @include flex(column, start, center);
-  //   height: 800px;
   padding: 70px 80px;
   background-color: white;
 
