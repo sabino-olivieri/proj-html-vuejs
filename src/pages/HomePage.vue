@@ -2,7 +2,7 @@
 import AppCarouselBanner from '../components/AppCarouselBanner.vue';
 export default {
     components:{
-        AppCarouselBanner
+        AppCarouselBanner,
     },
     data(){
         return{
@@ -20,7 +20,6 @@ export default {
 <template>
     <div>
         <!-- <h1>Home Page</h1> -->
-
         <AppCarouselBanner :array="sliderImages"/>
     </div>
 </template>
