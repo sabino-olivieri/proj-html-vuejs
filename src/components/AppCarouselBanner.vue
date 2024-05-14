@@ -37,7 +37,7 @@ export default {
 <template>
   <div id="carousel" class="carousel slide">
     <div class="carousel-inner">
-      <div class="carousel-item active" :style="{ backgroundImage: `url(${getImagePath(array[this.activeIndex].image)})`}">
+      <div class="carousel-item" :style="{ backgroundImage: `url(${getImagePath(array[this.activeIndex].image)})`}">
         <div class="info gap-3">
           <h1>
             {{ array[this.activeIndex].title }}
@@ -59,7 +59,6 @@ export default {
       data-bs-slide="prev"
       @click="showPrev()"
     >
-      <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
       <i class="fa-solid fa-arrow-left"></i>
 
       <span class="visually-hidden">Previous</span>
@@ -71,7 +70,6 @@ export default {
       data-bs-slide="next"
       @click="showNext()"
     >
-      <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
       <i class="fa-solid fa-arrow-right"></i>
       <span class="visually-hidden">Next</span>
     </button>
