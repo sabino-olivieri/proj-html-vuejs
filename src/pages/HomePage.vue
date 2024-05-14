@@ -3,13 +3,17 @@ import AppCarouselBanner from "../components/AppCarouselBanner.vue";
 import AppOurSpecialties from "../components/AppOurSpecialties.vue";
 import AppEventsSection from "../components/AppEventsSection.vue";
 import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue";
+import {store} from "../store.js"
 
 export default {
   components: {
     AppCarouselBanner,
     AppOurSpecialties,
     AppEventsSection,
-    AppCreativeLeaderSection
+    AppCreativeLeaderSection,
+  },
+  created() {
+    store.isHeaderHome = true;
   },
   data() {
     return {
@@ -35,25 +39,24 @@ export default {
         {
           image: "svg-1.svg",
           subtitle: "knowing",
-          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing",
         },
         {
           image: "svg-2.svg",
           subtitle: "Selling",
-          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing",
         },
         {
           image: "svg-3.svg",
           subtitle: "Learning",
-          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing",
         },
         {
           image: "svg-4.svg",
           subtitle: "Contact",
-          text: "Lorem ipsum dolor sit amet, consectetur adipisicing"
+          text: "Lorem ipsum dolor sit amet, consectetur adipisicing",
         },
-
-      ]
+      ],
     };
   },
 };
@@ -63,16 +66,14 @@ export default {
   <div class="homePage">
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
-    <AppOurSpecialties :itemArray="ourSpecialtiesItem"/>
-    <AppEventsSection/>
-    <AppCreativeLeaderSection/>
+    <AppOurSpecialties :itemArray="ourSpecialtiesItem" />
+    <AppEventsSection />
+    <AppCreativeLeaderSection />
   </div>
 </template>
 
 <style lang="scss" scoped>
-
-.homePage{
+.homePage {
   background-color: rgb(250, 250, 250);
 }
-
 </style>
