@@ -15,6 +15,7 @@ export default {
 
     <div class="ms_overlay" :class="store.isSidebar ? '' : 'ms_hidden'" @click="store.isSidebar = false">
         <div class="ms_sidebar text-center" :class="store.isSidebar ? '' : 'ms_hidden'" @click.stop="">
+            <i class="fa-solid fa-x" @click="store.isSidebar = false"></i>
             <img src="../assets/img/logo-side.png" alt="">
             <div class="d-flex justify-content-center">
                 <h3>Everlead Theme</h3>
@@ -55,9 +56,22 @@ export default {
     width: 500px;
     height: 100vh;
     background-color: var(--ms-bold-color);
-    transition: all 0.5s;
+    transition: all .6s;
     color: white;
     padding: 50px 80px;
+
+    .fa-x {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        transition: color 0.5s;
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            color: var(--ms-primary-color);
+        }
+    }
 
     div {
         align-items: baseline;
@@ -68,7 +82,7 @@ export default {
             font-family: "Libre Baskerville", serif;
             margin: 25px 0;
             font-size: 2.7rem;
-            word-wrap: break-word;
+
             font-weight: 700;
 
         }
@@ -137,8 +151,9 @@ export default {
 }
 
 .ms_hidden {
-    width: 0;
+    right: -500px;
     z-index: -1;
     overflow: hidden;
+    transition: all 0.6s;
 }
 </style>
