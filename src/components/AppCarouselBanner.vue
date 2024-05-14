@@ -63,7 +63,9 @@ export default {
       data-bs-slide="prev"
       @click="showPrev()"
     >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+      <i class="fa-solid fa-arrow-left"></i>
+
       <span class="visually-hidden">Previous</span>
     </button>
     <button
@@ -73,7 +75,8 @@ export default {
       data-bs-slide="next"
       @click="showNext()"
     >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+      <i class="fa-solid fa-arrow-right"></i>
       <span class="visually-hidden">Next</span>
     </button>
   </div>
@@ -84,6 +87,13 @@ export default {
 
 .carousel {
   position: relative;
+
+  i{
+    font-size: 40px;
+    color: black
+  }
+
+
 
   .carousel-item {
     @include flex(column, center, start);
