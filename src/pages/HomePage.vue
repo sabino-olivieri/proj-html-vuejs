@@ -2,11 +2,14 @@
 import AppCarouselBanner from "../components/AppCarouselBanner.vue";
 import AppOurSpecialties from "../components/AppOurSpecialties.vue";
 import AppEventsSection from "../components/AppEventsSection.vue";
+import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue";
+
 export default {
   components: {
     AppCarouselBanner,
     AppOurSpecialties,
-    AppEventsSection
+    AppEventsSection,
+    AppCreativeLeaderSection
   },
   data() {
     return {
@@ -62,6 +65,7 @@ export default {
     <AppCarouselBanner :array="sliderImages" />
     <AppOurSpecialties :itemArray="ourSpecialtiesItem"/>
     <AppEventsSection/>
+    <AppCreativeLeaderSection/>
   </div>
 </template>
 

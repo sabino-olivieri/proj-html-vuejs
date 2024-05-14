@@ -19,7 +19,7 @@ export default {
       <i class="fa-solid fa-circle"></i>
     </h1>
     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit </span>
-    <span class="line pt-2"></span>
+    <span class="border-bt-line pt-2"></span>
     <ul class="gap-4">
       <li class="gap-2" v-for="curItem in itemArray">
         <img :src="getImagePath(curItem.image)" alt="" />
@@ -50,10 +50,7 @@ export default {
     }
   }
 
-  .line {
-    border-bottom: 2px solid var(--ms-primary-color);
-    width: 60px;
-  }
+  
 
   .description {
     padding: 0px 40px;

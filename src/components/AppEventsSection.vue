@@ -13,19 +13,18 @@ export default {};
 @use "../style/partials/mixins" as *;
 
 .container {
-
-    @include flex(column,center,start);
+  @include flex(column, center, start);
   min-height: 400px;
   background: none;
 
-  h2{
+  h2 {
     padding: 30px 60px;
     background-color: white;
     box-shadow: 3px 3px 5px #dddcdc;
     width: 500px;
 
-    & + span{
-        color: var(--ms-secondary-color);
+    & + span {
+      color: var(--ms-secondary-color);
     }
   }
 }
