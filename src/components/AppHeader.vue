@@ -5,6 +5,7 @@ export default {
     data() {
         return {
             store,
+            searchIsVisible: false,
             navList: [
                 {
                     title: "homes",
@@ -53,6 +54,13 @@ export default {
                 </div>
 
                 <div class="col-auto d-flex align-items-center">
+
+                    <div class="ms_search-bar d-flex align-items-center" :class="searchIsVisible ? '' : 'ms_hidden'">
+                        <input type="text" placeholder="Search...">
+                        <i class="fa-solid fa-x" @click="searchIsVisible = false"></i>
+                    </div>
+                    <div class="ms_overlay" :class="searchIsVisible ? '' : 'ms_hidden'" @click="searchIsVisible = false"></div>
+
                     <ul class="d-flex align-items-center gap-5">
                         <li class="d-flex align-items-center ms_nav" v-for="link in navList">
                             <router-link :to="{ name: link.link }" class="nav-link" @click="link.link != 'home' ? store.isHeaderHome = false : store.isHeaderHome = true">{{ link.title.toUpperCase()
@@ -65,7 +73,7 @@ export default {
                                 </div>
                             </div>
                         </li>
-                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-magnifying-glass"></i></li>
+                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-magnifying-glass" @click="searchIsVisible = true"></i></li>
                         <li class="d-flex align-items-center p-2"><i class="fa-solid fa-bars"></i></li>
                     </ul>
                 </div>
@@ -81,13 +89,14 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 .header-normal {
     position: sticky;
-    z-index: 9999;
+    z-index: 9998;
 }
+
 header {
     width: 100%;
     height: 100px;
@@ -231,6 +240,48 @@ header {
         }
     }
 
+    .ms_search-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        height: 100%;
+        width: 100%;
+        padding: 0px 20px;
+        background-color: white;
+        transition: all 0.3s;
+
+        input {
+            padding: 10px;
+            border: 0;
+            width: 100%;
+
+            &:focus {
+                outline: 0;
+            }
+
+        }
+        .fa-x{
+            position: absolute;
+            right: 30px;
+        } 
+    }
+
+    .ms_overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .ms_hidden {
+    width: 0;
+    opacity: 0;
+    z-index: -1;
+    overflow: hidden;
+}
 
 }
 </style>
