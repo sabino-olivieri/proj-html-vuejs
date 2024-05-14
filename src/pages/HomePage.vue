@@ -16,8 +16,6 @@ export default {
         {
           image: "image-2.png",
           title: "Help you achieve anything",
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum natus, laborum rerum est labore molestiae quidem hic nemo vitae dolorum odio at aliquid dolores sed dignissimos velit perferendis distinctio non?",
         },
         {
           image: "image-3.jpg",

@@ -39,12 +39,15 @@ export default {
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="info gap-3">
-            <h1>{{ array[this.activeIndex].title }}</h1>
-            <span>{{ array[this.activeIndex].content }}</span>
-            <div class="btn-container d-flex gap-3 pt-3">
-                <a href="#" class="white-link">read more</a>
-                <a href="#" class="orange-link">purchase</a>
-            </div>
+          <h1>
+            {{ array[this.activeIndex].title }}
+            <i class="fa-solid fa-circle"></i>
+          </h1>
+          <span>{{ array[this.activeIndex].content }}</span>
+          <div class="btn-container d-flex gap-3 pt-3">
+            <a href="#" class="white-link">read more</a>
+            <a href="#" class="orange-link">purchase</a>
+          </div>
         </div>
         <img
           :src="getImagePath(array[this.activeIndex].image)"
@@ -77,42 +80,36 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
 @use "../style/partials/mixins" as *;
 
+.carousel {
+  position: relative;
 
-.carousel-control-prev,
-.carousel-control-next {
-  color: red !important;
-}
+  .carousel-item {
+    @include flex(column, center, start);
 
-.carousel{
-    position: relative;
+    .info {
+      position: absolute;
+      justify-content: space-between;
+      margin-left: 300px;
 
-    .carousel-item{
+      max-width: 40%;
 
-        @include flex(column,center,start);
-
-        .info{
-            position: absolute;
-            margin-left: 300px;
-    
-            
-            max-width: 35%;
-    
-            h1{
-                font-size: 80px;
-            }
-            span{
-                font-size: 20px;
-            }
-    
-    
+      h1 {
+        font-size: 80px;
+        i {
+          font-size: 15px;
+          color: var(--ms-primary-color);
         }
+      }
+      span {
+        font-size: 20px;
+      }
     }
-
-    
+    img {
+      max-height: 1080px;
+      object-fit: cover;
+    }
+  }
 }
-
-
 </style>
