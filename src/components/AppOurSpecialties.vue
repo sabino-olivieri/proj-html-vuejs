@@ -16,7 +16,7 @@ export default {
   <div class="ms-container-90 gap-3">
     <h1 class="fw-bold">
       Our Specialties
-      <i class="fa-solid fa-circle "></i>
+      <i class="fa-solid fa-circle"></i>
     </h1>
     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit </span>
     <span class="line pt-2"></span>
@@ -35,24 +35,29 @@ export default {
 
 .ms-container-90 {
   @include flex(column, start, center);
-//   height: 800px;
+  //   height: 800px;
   padding: 70px 80px;
   background-color: white;
 
-
-  h1{
+  h1 {
+    font-size: 50px;
     i {
-              font-size: 15px;
-              color: var(--ms-primary-color);
-            }
+      font-size: 15px;
+      color: var(--ms-primary-color);
+    }
+    & + span{
+      font-size: 20px;
+      color: var(--ms-secondary-color);
+    }
   }
+
   .line {
     border-bottom: 2px solid var(--ms-primary-color);
     width: 60px;
   }
 
-  .description{
-    padding: 0px 40px
+  .description {
+    padding: 0px 40px;
   }
 
   ul {
@@ -63,6 +68,10 @@ export default {
       @include flex(column, center, center);
       text-align: center;
       max-width: 20%;
+
+      span{
+        color: var(--ms-secondary-color);
+      }
     }
   }
 }
