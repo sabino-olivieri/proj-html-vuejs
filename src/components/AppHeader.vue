@@ -1,7 +1,9 @@
 <script>
 import {store} from "../store";
+import AppSidebar from './AppSidebar.vue';
 
 export default {
+  components: { AppSidebar },
     data() {
         return {
             store,
@@ -45,6 +47,7 @@ export default {
 
 <template>
     <header class="d-flex align-items-center" :class="store.isHeaderHome ? 'header-home' : 'header-normal' ">
+        <AppSidebar />
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-auto d-flex align-items-center">
@@ -74,7 +77,7 @@ export default {
                             </div>
                         </li>
                         <li class="d-flex align-items-center p-2"><i class="fa-solid fa-magnifying-glass" @click="searchIsVisible = true"></i></li>
-                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-bars"></i></li>
+                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-bars" @click="store.isSidebar = true"></i></li>
                     </ul>
                 </div>
             </div>
@@ -89,12 +92,12 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 9998;
+    z-index: 999;
 }
 
 .header-normal {
     position: sticky;
-    z-index: 9998;
+    z-index: 999;
 }
 
 header {
