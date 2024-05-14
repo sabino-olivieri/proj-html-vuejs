@@ -104,7 +104,7 @@ export default {
                     <textarea name="" aria-label="Add your message" id="message" rows="3">Your Message</textarea>
                   </div>
 
-                  <AppButton />
+                  <AppButton :innerText="'SEND'" :bgColor="'orange'" :wantBorder="true" :typeBtn="'submit'" />
                 </form>
 
               </div>
