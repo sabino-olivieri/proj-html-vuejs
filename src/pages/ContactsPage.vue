@@ -36,7 +36,10 @@ export default {
     <!-- <h1>Contacts Pagee</h1> -->
     <main>
       <!-- Hero  -->
-      <div class="hero"></div>
+      <div class="hero">
+        <!-- <h3>Una mappa interattiva per volantini</h3>
+        <div id="map" style="height:90vh;"></div> -->
+      </div>
       <!-- /Hero  -->
 
       <div class="contact-us-top py-5">
@@ -75,7 +78,35 @@ export default {
           </div>
         </div>
       </div>
-      <div class="contact-us-bottom"></div>
+      <div class="contact-us-bottom">
+        <div class="container">
+          <div class="row justify-content-xl-end">
+            <div class="col-12 col-xl-5">
+              <div class="ms_card-bottom">
+                <h2>Contact US.</h2>
+                <p>Lorem ipsum dolor svit consectetur</p>
+
+                <form action="">
+                  <div class="ms_input-conteiner">
+                    <input id="name" type="text" aria-label="Add your name" placeholder="Your Name">
+                  </div>
+                  <div class="ms_input-conteiner">
+                    <input id="email" type="email" aria-label="Add your email" placeholder="Your Email">
+                  </div>
+                  <div class="ms_input-conteiner">
+                    <textarea name="" aria-label="Add your message" id="message" rows="3">Your Message</textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-outline-light">SEND</button>
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
 
 
     </main>
@@ -155,6 +186,45 @@ main {
       }
     }
 
+  }
+
+  .contact-us-bottom {
+    background-image: url('https://everlead.qodeinteractive.com/wp-content/uploads/2019/05/contact-us-img-02.jpg?');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 200px;
+    padding: 70px 0;
+
+    .ms_card-bottom {
+      background-color: var(--ms-primary-color);
+      color: white;
+      padding: 50px 40px;
+
+      .ms_input-conteiner {
+        display: flex;
+
+        input,
+        textarea {
+          border: none;
+          flex-grow: 1;
+          background-color: transparent;
+          border-bottom: 1px solid white;
+          padding: 40px 20px 30px;
+        }
+
+        input::placeholder {
+          color: #e2e2e2;
+          font-size: 0.8rem;
+        }
+
+        textarea {
+          color: #e2e2e2;
+          font-size: 0.8rem;
+          margin-bottom: 20px;
+
+        }
+      }
+    }
   }
 }
 </style>
