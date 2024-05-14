@@ -1,7 +1,10 @@
 <script>
+import {store} from "../store";
+
 export default {
     data() {
         return {
+            store,
             navList: [
                 {
                     title: "homes",
@@ -40,9 +43,9 @@ export default {
 </script>
 
 <template>
-    <header class="d-flex align-items-center">
+    <header class="d-flex align-items-center" :class="store.isHeaderHome ? 'header-home' : 'header-normal' ">
         <div class="container">
-            <div class="row justify-content-between align-items-center py-2">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-auto d-flex align-items-center">
                     <router-link :to="{ name: 'home' }">
                         <img src="../assets/img/logo.png" alt="">
@@ -52,7 +55,7 @@ export default {
                 <div class="col-auto d-flex align-items-center">
                     <ul class="d-flex align-items-center gap-5">
                         <li class="d-flex align-items-center ms_nav" v-for="link in navList">
-                            <router-link :to="{ name: link.link }" class="nav-link">{{ link.title.toUpperCase()
+                            <router-link :to="{ name: link.link }" class="nav-link" @click="link.link != 'home' ? store.isHeaderHome = false : store.isHeaderHome = true">{{ link.title.toUpperCase()
                                 }}</router-link>
                             <div class="sub-menu-container">
                                 <div class="sub-menu">
@@ -73,10 +76,21 @@ export default {
 
 
 <style lang="scss" scoped>
-header {
+
+.header-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.header-normal {
     position: sticky;
+    z-index: 9999;
+}
+header {
+    width: 100%;
     height: 100px;
-    font-family: "Source Sans Pro", sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--ms-bold-color);
@@ -94,10 +108,18 @@ header {
 
     i {
         cursor: pointer;
+        transition: color 0.5s;
+
+        &:hover {
+            color: var(--ms-primary-color);
+        }
+    }
+    .ms_nav .nav-link {
+        transition: color 0.5s;
     }
 
-    .ms_nav:hover, i:hover {
-            color: var(--ms-primary-color);
+    .ms_nav .nav-link:hover {
+        color: var(--ms-primary-color);
             
 
             &::before {
@@ -106,13 +128,13 @@ header {
             }
         }
 
-        .ms_nav::before {
+        .ms_nav .nav-link::before {
             content: "\f178";
             position: absolute;
             display: inline-block;
             font: var(--fa-font-solid);
             left: -1.3rem;
-            color: #ff4612;
+            color: var(--ms-primary-color);
             font-size: 1.2rem;
             overflow: hidden;
             width: 0;
@@ -131,8 +153,7 @@ header {
             transform: rotatey(180deg);
         }
 
-        li {
-            transition: color 0.5s;
+        .ms_nav {
             position: relative;
             height: 100%;
 
@@ -154,9 +175,7 @@ header {
                 overflow: hidden;
                 opacity: 0;
                 z-index: 10;
-                -webkit-transition: top .15s ease-out;
-                -o-transition: top .15s ease-out;
-                transition: all .5s ease-out;
+                transition: all 0.5s ease-out;
                 
 
                 .sub-menu {
@@ -200,10 +219,18 @@ header {
 
         .router-link-active {
             color: var(--ms-primary-color);
+            &::after {
+            content: "\f178";
+            position: absolute;
+            font: var(--fa-font-solid);
+            left: -1.3rem;
+            color: var(--ms-primary-color);
+            font-size: 1.2rem;
+            width: auto;
+            }
         }
     }
 
-    // debug
-    border: 1px solid black;
+
 }
 </style>
