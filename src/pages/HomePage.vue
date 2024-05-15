@@ -63,16 +63,28 @@ export default {
       ],
       cardImages: [
         {
-          image: "image-1.jpg"
+          image: "image-1.jpg",
+          date: "May 5 2019",
+          title: "Title",
+          text: "text"
         },
         {
-          image: "image-2.jpg"
+          image: "image-2.jpg",
+          date: "May 5 2019",
+          title: "Title",
+          text: "text"
         },
         {
-          image: "image-3.jpg"
+          image: "image-3.jpg",
+          date: "May 5 2019",
+          title: "Title",
+          text: "text"
         },
         {
-          image: "image-4.jpg"
+          image: "image-4.jpg",
+          date: "May 5 2019",
+          title: "Title",
+          text: "text"
         },
       ]
     };
