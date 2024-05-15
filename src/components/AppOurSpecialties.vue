@@ -18,7 +18,7 @@ export default {
   <div class="ms-container-90 gap-3">
     <AppTitle :title="'Our specialties'" :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'" />
     <ul class="gap-4">
-      <li class="gap-2" v-for="curItem in itemArray">
+      <li class="gap-2" v-for="curItem in itemArray" :key="curItem">
         <img :src="getImagePath(curItem.image)" alt="" />
         <h4 class="fw-bold">{{ curItem.subtitle }}</h4>
         <span class="description">{{ curItem.text }}</span>
@@ -32,7 +32,10 @@ export default {
 
 .ms-container-90 {
   @include flex(column, start, center);
-  padding: 70px 80px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  padding-right: 80px;
+  padding-left: 80px;
   background-color: white;
 
   h1 {

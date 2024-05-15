@@ -9,7 +9,7 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-12 d-flex justify-content-center">
                 <h2>{{title}}</h2>
                 <span></span>

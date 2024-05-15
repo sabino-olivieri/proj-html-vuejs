@@ -3,12 +3,14 @@ export default {
   data() {
     return {
       visibleCards: [],
-      cardWidth: 0
+      cardWidth: 0,
+      bgColor: ''
     };
   },
   created() {
     this.visibleCards = this.array;
     this.startInt();
+    this.isLogoInArray ? this.bgColor = 'transparent' : this.bgColor = 'white'
   },
   props: {
     array: Array,
@@ -54,7 +56,7 @@ export default {
           <div v-for="index in numOfItem" :key="index">
             <div
               class="card"
-              :style="{width: 'calc(100% / numOfItem)' + 'px'}"
+              :style="{width: 'calc(100% / numOfItem)' + 'px', backgroundColor: bgColor}"
               v-on:mouseover="clearInt()"
               v-on:mouseleave="startInt()"
             >

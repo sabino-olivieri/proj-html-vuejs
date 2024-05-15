@@ -5,9 +5,10 @@ import AppEventsSection from "../components/AppEventsSection.vue";
 import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue";
 import AppFounder from "../components/AppFounder.vue";
 import AppCardCarousel from "../components/AppCardCarousel.vue";
-import {store} from "../store.js"
-import AppPlans from '../components/AppPlans.vue';
-import AppContactHome from '../components/AppContactHome.vue';
+import { store } from "../store.js";
+import AppPlans from "../components/AppPlans.vue";
+import AppContactHome from "../components/AppContactHome.vue";
+import AppTitle from "../components/AppTitle.vue";
 
 export default {
   components: {
@@ -19,6 +20,7 @@ export default {
     AppCardCarousel,
     AppPlans,
     AppContactHome,
+    AppTitle,
   },
   created() {
     store.isHeaderHome = true;
@@ -70,95 +72,111 @@ export default {
           image: "../assets/img/card-slider/image-1.jpg",
           date: "May 5 2019",
           title: "Next Investment",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ...",
         },
         {
           image: "../assets/img/card-slider/image-2.jpg",
           date: "May 5 2019",
           title: "Team Building",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ...",
         },
         {
           image: "../assets/img/card-slider/image-3.jpg",
           date: "May 5 2019",
           title: "New Business Day",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ...",
         },
         {
           image: "../assets/img/card-slider/image-4.jpg",
           date: "May 5 2019",
           title: "Boost Motivation",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ...",
         },
       ],
       teacherCard: [
         {
           image: "../assets/img/card-teacher/teacher-1.jpg",
-          title: "Nome 1",
-          text: "Professione 1"
+          title: "Christine Yin",
+          text: "Founder",
         },
         {
           image: "../assets/img/card-teacher/teacher-2.jpg",
-          title: "Nome 2",
-          text: "Professione 2"
+          title: "Stephen Griffin",
+          text: "Life Coach",
         },
         {
           image: "../assets/img/card-teacher/teacher-3.jpg",
-          title: "Nome 3",
-          text: "Professione 3"
+          title: "Sandra Harley",
+          text: "Instructor",
         },
         {
           image: "../assets/img/card-teacher/teacher-4.jpg",
-          title: "Nome 4",
-          text: "Professione 4"
+          title: "Ruth Hunter",
+          text: "Manager",
         },
         {
           image: "../assets/img/card-teacher/teacher-5.jpg",
-          title: "Nome 5",
-          text: "Professione"
-        }
+          title: "Maya Adams",
+          text: "Nutritionist",
+        },
       ],
       cardLogo: [
         {
-          image: "../assets/img/card-logo/logo-1.png"
+          image: "../assets/img/card-logo/logo-1.png",
         },
         {
-          image: "../assets/img/card-logo/logo-3.png"
+          image: "../assets/img/card-logo/logo-3.png",
         },
         {
-          image: "../assets/img/card-logo/logo-5.png"
+          image: "../assets/img/card-logo/logo-5.png",
         },
         {
-          image: "../assets/img/card-logo/logo-7.png"
+          image: "../assets/img/card-logo/logo-7.png",
         },
         {
-          image: "../assets/img/card-logo/logo-9.png"
+          image: "../assets/img/card-logo/logo-9.png",
         },
         {
-          image: "../assets/img/card-logo/logo-2.png"
+          image: "../assets/img/card-logo/logo-2.png",
         },
-        
-      ]
+      ],
     };
   },
 };
 </script>
 
 <template>
-
   <div class="homePage">
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
     <AppOurSpecialties :itemArray="ourSpecialtiesItem" />
-    <AppFounder/>
+    <AppFounder />
     <AppEventsSection />
     <AppCreativeLeaderSection />
-    <AppCardCarousel :array="cardImages" :icon="'fa-solid fa-tag'" :tagText="'business, leading'" :isReadMore="true" :numOfItem="3"/>
-    <AppCardCarousel :array="teacherCard" :icon="'fa-solid fa-share-nodes'" :numOfItem="3"/>
-    <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5"/>
+    <AppTitle
+      :title="'Latest News'"
+      :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
+    />
+    <AppCardCarousel
+      :array="cardImages"
+      :icon="'fa-solid fa-tag'"
+      :tagText="'business, leading'"
+      :isReadMore="true"
+      :numOfItem="3"
+    />
+    <AppTitle
+      :title="'We can teach you'"
+      :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
+    />
+    <AppCardCarousel
+      :array="teacherCard"
+      :icon="'fa-solid fa-share-nodes'"
+      :numOfItem="3"
+    />
+    <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5" />
 
-    <AppContactHome/>
-    <AppPlans/>
+    <AppContactHome />
+    <AppPlans />
   </div>
 </template>
 
