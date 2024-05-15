@@ -120,10 +120,7 @@ export default {
       ],
       cardLogo: [
         {
-          image: "../assets/img/card-logo/logo-3.png"
-        },
-        {
-          image: "../assets/img/card-logo/logo-5.png"
+          image: "../assets/img/card-logo/logo-1.png"
         },
         {
           image: "../assets/img/card-logo/logo-3.png"
@@ -132,12 +129,15 @@ export default {
           image: "../assets/img/card-logo/logo-5.png"
         },
         {
-          image: "../assets/img/card-logo/logo-3.png"
+          image: "../assets/img/card-logo/logo-7.png"
         },
         {
-          image: "../assets/img/card-logo/logo-5.png"
+          image: "../assets/img/card-logo/logo-9.png"
         },
-
+        {
+          image: "../assets/img/card-logo/logo-2.png"
+        },
+        
       ]
     };
   },

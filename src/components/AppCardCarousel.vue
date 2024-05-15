@@ -166,6 +166,7 @@ export default {
         .card-body {
           width: 100%;
           position: relative;
+         
           span,
           p {
             color: var(--ms-secondary-color);
