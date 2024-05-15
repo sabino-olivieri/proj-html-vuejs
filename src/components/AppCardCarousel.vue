@@ -12,7 +12,7 @@ export default {
   props: {
     array: Array,
   },
- 
+
   methods: {
     getImagePath(image) {
       return new URL(`../assets/img/card-slider/${image}`, import.meta.url)
@@ -28,18 +28,14 @@ export default {
 
       this.visibleCards.shift();
       this.visibleCards.push(newElem);
-
-     
     },
     showPrev() {
       const newElem = this.visibleCards[this.visibleCards.length - 1];
 
       this.visibleCards.pop();
       this.visibleCards.unshift(newElem);
-
     },
     clearInt() {
-
       clearInterval(this.interval);
     },
   },
@@ -47,21 +43,28 @@ export default {
 </script>
 <template>
   <div class="ms-container-90">
-    <div id="carousel" class="carousel slide" >
+    <div id="carousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item gap-4">
           <div v-for="index in 3" :key="index">
-            <div class="card" v-on:mouseover="clearInt()" v-on:mouseleave="startInt()">
+            <div
+              class="card"
+              v-on:mouseover="clearInt()"
+              v-on:mouseleave="startInt()"
+            >
               <img
                 :src="getImagePath(visibleCards[index].image)"
                 class="card-img-top"
                 alt="Card Image"
               />
+              <a href="#" class="orange-link gap-2"> <i class="fa-solid fa-tag"></i> Business, Leading</a> 
               <div class="card-body">
                 <span class="card-date">{{ visibleCards[index].date }}</span>
-                <h4 class="card-title">{{ visibleCards[index].title }}</h4>
+                <h4 class="card-title fw-bold fs-2">
+                  {{ visibleCards[index].title }}
+                </h4>
                 <p class="card-text">{{ visibleCards[index].text }}</p>
-                <a href="#" class="btn fw-bold">READ MORE</a>
+                <a href="#" class="btn fw-bold arrowHoverText">READ MORE</a>
               </div>
             </div>
           </div>
@@ -119,6 +122,29 @@ export default {
         border: none;
         img {
           border-radius: 0px;
+        }
+
+        .orange-link{
+          position: absolute;
+          top:250px;
+          padding: 10px 30px;
+          text-transform: capitalize;
+          font-weight: 100;
+          right: 20px;
+          @include flex(row,center,center);
+
+
+          i{
+            font-size: smaller;
+            color: white;
+          }
+        }
+
+        .card-body {
+          span, p {
+            color: var(--ms-secondary-color);
+          }
+
         }
       }
     }

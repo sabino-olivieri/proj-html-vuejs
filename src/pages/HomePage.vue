@@ -69,26 +69,26 @@ export default {
         {
           image: "image-1.jpg",
           date: "May 5 2019",
-          title: "Title",
-          text: "text"
+          title: "Next Investment",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
           image: "image-2.jpg",
           date: "May 5 2019",
-          title: "Title",
-          text: "text"
+          title: "Team Building",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
           image: "image-3.jpg",
           date: "May 5 2019",
-          title: "Title",
-          text: "text"
+          title: "New Business Day",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
           image: "image-4.jpg",
           date: "May 5 2019",
-          title: "Title",
-          text: "text"
+          title: "Boost Motivation",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
       ]
     };
@@ -97,6 +97,7 @@ export default {
 </script>
 
 <template>
+
   <div class="homePage">
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
