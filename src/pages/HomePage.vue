@@ -117,6 +117,27 @@ export default {
           title: "Nome 5",
           text: "Professione"
         }
+      ],
+      cardLogo: [
+        {
+          image: "../assets/img/card-logo/logo-3.png"
+        },
+        {
+          image: "../assets/img/card-logo/logo-5.png"
+        },
+        {
+          image: "../assets/img/card-logo/logo-3.png"
+        },
+        {
+          image: "../assets/img/card-logo/logo-5.png"
+        },
+        {
+          image: "../assets/img/card-logo/logo-3.png"
+        },
+        {
+          image: "../assets/img/card-logo/logo-5.png"
+        },
+
       ]
     };
   },
@@ -132,8 +153,9 @@ export default {
     <AppFounder/>
     <AppEventsSection />
     <AppCreativeLeaderSection />
-    <AppCardCarousel :array="cardImages" :icon="'fa-solid fa-tag'" :tagText="'business, leading'" :isReadMore="true"/>
-    <AppCardCarousel :array="teacherCard" :icon="'fa-solid fa-share-nodes'"/>
+    <AppCardCarousel :array="cardImages" :icon="'fa-solid fa-tag'" :tagText="'business, leading'" :isReadMore="true" :numOfItem="3"/>
+    <AppCardCarousel :array="teacherCard" :icon="'fa-solid fa-share-nodes'" :numOfItem="3"/>
+    <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5"/>
 
     <AppContactHome/>
     <AppPlans/>
