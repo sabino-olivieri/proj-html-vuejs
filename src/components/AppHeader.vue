@@ -212,7 +212,8 @@ header {
 
                         li {
                         padding: 10px 30px;
-                        font-weight: 100;
+                        font-weight: 400;
+                        font-size: 1rem;
                         cursor: pointer;
 
                         &:hover {

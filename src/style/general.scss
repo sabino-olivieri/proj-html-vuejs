@@ -1,29 +1,33 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Tangerine:wght@400;700&display=swap');
 
 // RESET 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
 }
 
-:root{
+:root {
     --ms-primary-color: #ff4612;
     --ms-bold-color: #1e1e1e;
     --ms-secondary-color: #a7a7a7;
 }
 
 // COMMONS
-ul{
+ul {
     padding: 0;
-    li{
+
+    li {
         list-style-type: none;
     }
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -36,19 +40,19 @@ img {
 }
 
 // UTILITIES
-.white-link{
+.white-link {
     padding: 15px 50px;
     background-color: white;
     color: black;
 }
 
-.orange-link{
+.orange-link {
     padding: 15px 50px;
     background-color: orangered;
     color: white;
 }
 
-.ms-container-90{
+.ms-container-90 {
     width: 90%;
     margin: 0 auto;
 }
@@ -56,4 +60,5 @@ img {
 .border-bt-line {
     border-bottom: 2px solid var(--ms-primary-color);
     width: 60px;
-  }
+}
+

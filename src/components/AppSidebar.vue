@@ -53,12 +53,12 @@ export default {
     z-index: 9999;
     top: 0;
     right: 0;
-    width: 500px;
+    width: 530px;
     height: 100vh;
     background-color: var(--ms-bold-color);
     transition: all .6s;
     color: white;
-    padding: 50px 80px;
+    padding: 50px 70px;
 
     .fa-x {
         position: absolute;
@@ -151,7 +151,7 @@ export default {
 }
 
 .ms_hidden {
-    right: -500px;
+    right: -530px;
     z-index: -1;
     overflow: hidden;
     transition: all 0.6s;
