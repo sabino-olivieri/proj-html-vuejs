@@ -1,64 +1,93 @@
 @import "bootstrap/scss/bootstrap";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Tangerine:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Tangerine:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Tangerine:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Tangerine:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Tangerine:wght@400;700&display=swap");
 
-// RESET 
+// RESET
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Source Sans 3", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 :root {
-    --ms-primary-color: #ff4612;
-    --ms-bold-color: #1e1e1e;
-    --ms-secondary-color: #a7a7a7;
+  --ms-primary-color: #ff4612;
+  --ms-bold-color: #1e1e1e;
+  --ms-secondary-color: #a7a7a7;
 }
 
 // COMMONS
 ul {
-    padding: 0;
+  padding: 0;
 
-    li {
-        list-style-type: none;
-    }
+  li {
+    list-style-type: none;
+  }
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 15px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 // UTILITIES
 .white-link {
-    padding: 15px 50px;
-    background-color: white;
-    color: black;
+  padding: 15px 50px;
+  background-color: white;
+  color: black;
 }
 
 .orange-link {
-    padding: 15px 50px;
-    background-color: orangered;
-    color: white;
+  padding: 15px 50px;
+  background-color: orangered;
+  color: white;
 }
 
 .ms-container-90 {
-    width: 90%;
-    margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .border-bt-line {
-    border-bottom: 2px solid var(--ms-primary-color);
-    width: 60px;
+  border-bottom: 2px solid var(--ms-primary-color);
+  width: 60px;
 }
 
+.arrowHoverText {
+  position: relative;
+  color: black;
+  font-weight: 490;
+  transition: all 0.5s;
+
+  &::before {
+    content: "\f178";
+    position: absolute;
+    display: inline-block;
+    font: var(--fa-font-solid);
+    top: 0;
+    left: 0;
+    color: var(--ms-primary-color);
+    font-size: 1rem;
+    overflow: hidden;
+    width: 0;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  &:hover:before {
+    overflow: visible;
+    left: 25px;
+  }
+
+  &:hover {
+    padding-left: 3rem;
+  }
+}
