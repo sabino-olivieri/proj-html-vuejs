@@ -1,5 +1,9 @@
 <script>
+import AppButton from "./AppButton.vue"
 export default {
+  components:{
+    AppButton
+  },
   data() {
     return {
       activeIndex: 0,
@@ -30,12 +34,17 @@ export default {
         this.showNext();
       }, 5000);
     },
+    clearInt() {
+      // console.log("stop:", this.isIntervalActive);
+
+      clearInterval(this.interval);
+    },
   },
 };
 </script>
 
 <template>
-  <div id="carousel" class="carousel slide">
+  <div id="carousel" class="carousel slide" v-on:mouseover="clearInt()" v-on:mouseleave="startInt()">
     <div class="carousel-inner">
       <div class="carousel-item" :style="{ backgroundImage: `url(${getImagePath(array[this.activeIndex].image)})`}">
         <div class="info gap-3">
@@ -45,8 +54,8 @@ export default {
           </h1>
           <span>{{ array[this.activeIndex].content }}</span>
           <div class="btn-container d-flex gap-3 pt-3">
-            <a href="#" class="white-link">read more</a>
-            <a href="#" class="orange-link">purchase</a>
+            <AppButton :bgColor="'white'" :innerText="'READ MORE'"/>
+            <AppButton :bgColor="'orange'" :innerText="'PURCHASE'"/>
           </div>
         </div>
 

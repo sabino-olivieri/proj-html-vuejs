@@ -3,6 +3,7 @@ import AppCarouselBanner from "../components/AppCarouselBanner.vue";
 import AppOurSpecialties from "../components/AppOurSpecialties.vue";
 import AppEventsSection from "../components/AppEventsSection.vue";
 import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue";
+import AppFounder from "../components/AppFounder.vue"
 import {store} from "../store.js"
 
 export default {
@@ -11,6 +12,7 @@ export default {
     AppOurSpecialties,
     AppEventsSection,
     AppCreativeLeaderSection,
+    AppFounder
   },
   created() {
     store.isHeaderHome = true;
@@ -67,6 +69,7 @@ export default {
     <!-- <h1>Home Page</h1> -->
     <AppCarouselBanner :array="sliderImages" />
     <AppOurSpecialties :itemArray="ourSpecialtiesItem" />
+    <AppFounder/>
     <AppEventsSection />
     <AppCreativeLeaderSection />
   </div>
