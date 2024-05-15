@@ -39,7 +39,6 @@ export default {
 
 <template>
   <div>
-    <!-- <h1>Contacts Pagee</h1> -->
     <main>
       <!-- Hero  -->
       <div class="hero">
@@ -49,6 +48,7 @@ export default {
       </div>
       <!-- /Hero  -->
 
+      <!-- contact-us-top -->
       <div class="contact-us-top">
         <div class="ms_title-top text-center">
           <h2>Contact us</h2>
@@ -56,7 +56,7 @@ export default {
         </div>
 
         <div class="container">
-          <div class="row row-cols-1 row-cols-xl-3">
+          <div class="row row-cols-1 row-cols-xl-3 g-5">
             <div v-for="curCont in contact" class="col">
               <div class="ms_footer-card">
                 <h3>{{ curCont.title }}</h3>
@@ -85,6 +85,9 @@ export default {
           </div>
         </div>
       </div>
+      <!-- /contact-us-top -->
+
+      <!-- contact-us-bottom -->
       <div class="contact-us-bottom">
         <div class="container">
           <div class="row justify-content-xl-end">
@@ -104,7 +107,9 @@ export default {
                     <textarea name="" aria-label="Add your message" id="message" rows="3">Your Message</textarea>
                   </div>
 
+                  <!-- AppButton  -->
                   <AppButton :innerText="'SEND'" :bgColor="'orange'" :wantBorder="true" :typeBtn="'submit'" />
+                  <!-- /AppButton  -->
                 </form>
 
               </div>
@@ -114,8 +119,7 @@ export default {
 
         </div>
       </div>
-
-
+      <!-- /contact-us-bottom -->
     </main>
 
   </div>
@@ -155,21 +159,23 @@ main {
       }
     }
 
+    h2,
+    h3 {
+      &::after {
+        content: '';
+        background-color: var(--ms-primary-color);
+        display: inline-block;
+        width: 5px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+    }
+
     .ms_footer-card {
       background-color: white;
       padding: 40px;
       box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
 
-      h3 {
-        &::after {
-          content: '';
-          background-color: var(--ms-primary-color);
-          display: inline-block;
-          width: 5px;
-          aspect-ratio: 1;
-          border-radius: 50%;
-        }
-      }
 
       ul {
         list-style-type: none;

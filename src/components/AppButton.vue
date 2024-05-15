@@ -28,7 +28,6 @@ export default {
   <button :type="typeBtn" :class="[getBgColor(), { 'ms_border-white': wantBorder }]">
     {{ innerText }}
     <span>
-
       <i class="fa-solid fa-arrow-right-long"></i>
     </span>
   </button>

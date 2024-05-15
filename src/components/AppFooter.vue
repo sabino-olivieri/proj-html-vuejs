@@ -24,6 +24,7 @@ export default {
 
 <template>
   <footer>
+    <!-- Footer top  -->
     <div class="container ms_footer-top py-5">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div class="col py-3">
@@ -60,13 +61,21 @@ export default {
                 <span class="mx-2">{{ curContact.contact }}</span>
               </li>
             </ul>
+            <div class="ms_subscrive-con">
+              <input id="subscribe" type="text" placeholder="Your Name">
+              <label for="subcribe">SUBSCRIBE</label>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- /Footer top  -->
+
+    <!-- Footer Bottom  -->
     <div class="ms_footer-bottom">
       <a href="">© 2019 Qode Interactive, All Rights Reserved</a>
     </div>
+    <!-- /Footer Bottom  -->
   </footer>
 
 </template>
@@ -92,7 +101,6 @@ footer {
   }
 
   ul {
-    list-style-type: none;
     padding-left: 0;
 
     li {
@@ -106,6 +114,57 @@ footer {
 
     i {
       color: var(--ms-primary-color);
+    }
+  }
+
+  .ms_subscrive-con {
+    border-bottom: 1px solid white;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+
+    input {
+      background-color: transparent;
+      border: none;
+      flex-grow: 1;
+      color: rgb(190, 190, 190);
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    label {
+      color: white;
+      font-size: 0.7rem;
+
+      &::before {
+        content: "\f178";
+        position: absolute;
+        display: inline-block;
+        font: var(--fa-font-solid);
+        left: -1.3rem;
+        color: var(--ms-primary-color);
+        font-size: 0.8rem;
+        overflow: hidden;
+        width: 0;
+        transition: all 0.5s;
+        cursor: pointer;
+      }
+
+      &:hover:before {
+        overflow: visible;
+        left: -1rem;
+      }
+    }
+
+    &,
+    input,
+    label {
+      cursor: pointer;
+      position: relative;
+
+
     }
   }
 
