@@ -3,7 +3,8 @@ import AppCarouselBanner from "../components/AppCarouselBanner.vue";
 import AppOurSpecialties from "../components/AppOurSpecialties.vue";
 import AppEventsSection from "../components/AppEventsSection.vue";
 import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue";
-import AppFounder from "../components/AppFounder.vue"
+import AppFounder from "../components/AppFounder.vue";
+import AppCardCarousel from "../components/AppCardCarousel.vue";
 import {store} from "../store.js"
 
 export default {
@@ -12,7 +13,8 @@ export default {
     AppOurSpecialties,
     AppEventsSection,
     AppCreativeLeaderSection,
-    AppFounder
+    AppFounder,
+    AppCardCarousel
   },
   created() {
     store.isHeaderHome = true;
@@ -59,6 +61,20 @@ export default {
           text: "Lorem ipsum dolor sit amet, consectetur adipisicing",
         },
       ],
+      cardImages: [
+        {
+          image: "image-1.jpg"
+        },
+        {
+          image: "image-2.jpg"
+        },
+        {
+          image: "image-3.jpg"
+        },
+        {
+          image: "image-4.jpg"
+        },
+      ]
     };
   },
 };
@@ -72,6 +88,7 @@ export default {
     <AppFounder/>
     <AppEventsSection />
     <AppCreativeLeaderSection />
+    <AppCardCarousel :array="cardImages"/>
   </div>
 </template>
 
