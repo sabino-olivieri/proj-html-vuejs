@@ -1,5 +1,7 @@
 <script>
+import AppTitle from './AppTitle.vue';
 export default {
+  components: { AppTitle },
   props: {
     itemArray: Array,
   },
@@ -14,12 +16,7 @@ export default {
 
 <template>
   <div class="ms-container-90 gap-3">
-    <h1 class="fw-bold">
-      Our Specialties
-      <i class="fa-solid fa-circle"></i>
-    </h1>
-    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit </span>
-    <span class="border-bt-line pt-2"></span>
+    <AppTitle :title="'Our specialties'" :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'" />
     <ul class="gap-4">
       <li class="gap-2" v-for="curItem in itemArray">
         <img :src="getImagePath(curItem.image)" alt="" />

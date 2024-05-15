@@ -188,9 +188,9 @@ header {
                 height: 0px;
                 visibility: hidden;
                 overflow: hidden;
-                opacity: 0;
+                
                 z-index: 10;
-                transition: all 0.5s ease-out;
+                transition: all 0.5s ease;
                 
 
                 .sub-menu {

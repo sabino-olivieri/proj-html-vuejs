@@ -1,10 +1,11 @@
 <script>
 import AppFounder from '../components/AppFounder.vue';
+import AppOurGatherings from '../components/AppOurGatherings.vue';
 import AppOurSpecialties from '../components/AppOurSpecialties.vue';
 import { store } from '../store';
 
 export default {
-    components: { AppOurSpecialties, AppFounder },
+    components: { AppOurSpecialties, AppFounder, AppOurGatherings },
     data() {
         return {
             store,
@@ -48,6 +49,8 @@ export default {
     <AppOurSpecialties :itemArray="ourSpecialtiesItem" />
 
     <AppFounder />
+
+    <AppOurGatherings />
 </template>
 
 <style lang="scss" scoped>
