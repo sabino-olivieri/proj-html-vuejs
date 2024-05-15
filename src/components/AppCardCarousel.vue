@@ -11,11 +11,15 @@ export default {
   },
   props: {
     array: Array,
+    icon: String,
+    tagText: String,
+    isReadMore: Boolean
+
   },
 
   methods: {
     getImagePath(image) {
-      return new URL(`../assets/img/card-slider/${image}`, import.meta.url)
+      return new URL(`${image}`, import.meta.url)
         .href;
     },
     startInt() {
@@ -53,18 +57,19 @@ export default {
               v-on:mouseleave="startInt()"
             >
               <img
+                v-if="getImagePath(visibleCards[index].image) !== ''"
                 :src="getImagePath(visibleCards[index].image)"
                 class="card-img-top"
                 alt="Card Image"
               />
-              <a href="#" class="orange-link gap-2"> <i class="fa-solid fa-tag"></i> Business, Leading</a> 
               <div class="card-body">
-                <span class="card-date">{{ visibleCards[index].date }}</span>
-                <h4 class="card-title fw-bold fs-2">
+                <a v-if="tagText || icon" href="#" class="orange-link gap-2"> <i :class="`${icon}`"></i> {{ tagText }}</a> 
+                <span v-if="visibleCards[index].date" class="card-date">{{ visibleCards[index].date }}</span>
+                <h4 v-if="visibleCards[index].title" class="card-title fw-bold fs-2">
                   {{ visibleCards[index].title }}
                 </h4>
-                <p class="card-text">{{ visibleCards[index].text }}</p>
-                <a href="#" class="btn fw-bold arrowHoverText">READ MORE</a>
+                <p v-if="visibleCards[index].text" class="card-text">{{ visibleCards[index].text }}</p>
+                <a v-if="isReadMore" href="#" class="btn fw-bold arrowHoverText">READ MORE</a>
               </div>
             </div>
           </div>
@@ -124,28 +129,31 @@ export default {
           border-radius: 0px;
         }
 
-        .orange-link{
-          position: absolute;
-          top:250px;
-          padding: 10px 30px;
-          text-transform: capitalize;
-          font-weight: 100;
-          right: 20px;
-          @include flex(row,center,center);
-
-
-          i{
-            font-size: smaller;
-            color: white;
-          }
-        }
-
-        .card-body {
+        .card-body{
+          width: 100%;
+          position: relative;
           span, p {
             color: var(--ms-secondary-color);
           }
 
+          .orange-link{
+            position: absolute;
+            top:-20px;
+            padding: 10px 30px;
+            text-transform: capitalize;
+            font-weight: 100;
+            right: 0px;
+            @include flex(row,center,center);
+  
+  
+            i{
+              font-size: smaller;
+              color: white;
+            }
+          }
         }
+
+    
       }
     }
   }

@@ -67,29 +67,56 @@ export default {
       ],
       cardImages: [
         {
-          image: "image-1.jpg",
+          image: "../assets/img/card-slider/image-1.jpg",
           date: "May 5 2019",
           title: "Next Investment",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
-          image: "image-2.jpg",
+          image: "../assets/img/card-slider/image-2.jpg",
           date: "May 5 2019",
           title: "Team Building",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
-          image: "image-3.jpg",
+          image: "../assets/img/card-slider/image-3.jpg",
           date: "May 5 2019",
           title: "New Business Day",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
         {
-          image: "image-4.jpg",
+          image: "../assets/img/card-slider/image-4.jpg",
           date: "May 5 2019",
           title: "Boost Motivation",
           text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eius mas tellus dolor ..."
         },
+      ],
+      teacherCard: [
+        {
+          image: "../assets/img/card-teacher/teacher-1.jpg",
+          title: "Nome 1",
+          text: "Professione 1"
+        },
+        {
+          image: "../assets/img/card-teacher/teacher-2.jpg",
+          title: "Nome 2",
+          text: "Professione 2"
+        },
+        {
+          image: "../assets/img/card-teacher/teacher-3.jpg",
+          title: "Nome 3",
+          text: "Professione 3"
+        },
+        {
+          image: "../assets/img/card-teacher/teacher-4.jpg",
+          title: "Nome 4",
+          text: "Professione 4"
+        },
+        {
+          image: "../assets/img/card-teacher/teacher-5.jpg",
+          title: "Nome 5",
+          text: "Professione"
+        }
       ]
     };
   },
@@ -105,7 +132,9 @@ export default {
     <AppFounder/>
     <AppEventsSection />
     <AppCreativeLeaderSection />
-    <AppCardCarousel :array="cardImages"/>
+    <AppCardCarousel :array="cardImages" :icon="'fa-solid fa-tag'" :tagText="'business, leading'" :isReadMore="true"/>
+    <AppCardCarousel :array="teacherCard" :icon="'fa-solid fa-share-nodes'"/>
+
     <AppContactHome/>
     <AppPlans/>
   </div>
