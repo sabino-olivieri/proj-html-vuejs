@@ -6,6 +6,8 @@ import AppCreativeLeaderSection from "../components/AppCreativeLeaderSection.vue
 import AppFounder from "../components/AppFounder.vue";
 import AppCardCarousel from "../components/AppCardCarousel.vue";
 import {store} from "../store.js"
+import AppPlans from '../components/AppPlans.vue';
+import AppContactHome from '../components/AppContactHome.vue';
 
 export default {
   components: {
@@ -14,7 +16,9 @@ export default {
     AppEventsSection,
     AppCreativeLeaderSection,
     AppFounder,
-    AppCardCarousel
+    AppCardCarousel,
+    AppPlans,
+    AppContactHome,
   },
   created() {
     store.isHeaderHome = true;
@@ -101,6 +105,8 @@ export default {
     <AppEventsSection />
     <AppCreativeLeaderSection />
     <AppCardCarousel :array="cardImages"/>
+    <AppContactHome/>
+    <AppPlans/>
   </div>
 </template>
 
