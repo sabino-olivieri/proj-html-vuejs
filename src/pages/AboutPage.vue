@@ -1,11 +1,12 @@
 <script>
+import AppCreativeLeaderSection from '../components/AppCreativeLeaderSection.vue';
 import AppFounder from '../components/AppFounder.vue';
 import AppOurGatherings from '../components/AppOurGatherings.vue';
 import AppOurSpecialties from '../components/AppOurSpecialties.vue';
 import { store } from '../store';
 
 export default {
-    components: { AppOurSpecialties, AppFounder, AppOurGatherings },
+    components: { AppOurSpecialties, AppFounder, AppOurGatherings, AppCreativeLeaderSection },
     data() {
         return {
             store,
@@ -51,6 +52,8 @@ export default {
     <AppFounder />
 
     <AppOurGatherings />
+
+    <AppCreativeLeaderSection />
 </template>
 
 <style lang="scss" scoped>
