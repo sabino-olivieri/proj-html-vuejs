@@ -46,7 +46,6 @@ img {
   color: black;
 }
 
-
 .orange-link {
   padding: 15px 50px;
   background-color: orangered;
@@ -74,7 +73,7 @@ img {
     position: absolute;
     display: inline-block;
     font: var(--fa-font-solid);
-    top: 0;
+    top: 15%;
     left: 0;
     color: var(--ms-primary-color);
     font-size: 1rem;
@@ -89,6 +88,6 @@ img {
   }
 
   &:hover {
-    padding-left: 3rem;
+    padding-left: 3rem !important;
   }
 }
