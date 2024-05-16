@@ -173,9 +173,9 @@ export default {
       :icon="'fa-solid fa-share-nodes'"
       :numOfItem="3"
     />
-    <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5" />
-
+    
     <AppContactHome />
+    <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5" />
     <AppPlans />
   </div>
 </template>

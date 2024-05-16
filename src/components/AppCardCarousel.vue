@@ -4,13 +4,15 @@ export default {
     return {
       visibleCards: [],
       cardWidth: 0,
-      bgColor: ''
+      bgColor: "",
     };
   },
   created() {
     this.visibleCards = this.array;
     this.startInt();
-    this.isLogoInArray ? this.bgColor = 'transparent' : this.bgColor = 'white'
+    this.isLogoInArray
+      ? (this.bgColor = "transparent")
+      : (this.bgColor = "white");
   },
   props: {
     array: Array,
@@ -18,7 +20,7 @@ export default {
     tagText: String,
     isReadMore: Boolean,
     isLogoInArray: Boolean,
-    numOfItem: Number
+    numOfItem: Number,
   },
 
   methods: {
@@ -50,34 +52,40 @@ export default {
 </script>
 <template>
   <div class="ms-container-90">
-    <div id="carousel" class="carousel slide" >
+    <div id="carousel" class="carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item gap-4">
           <div v-for="index in numOfItem" :key="index">
             <div
               class="card"
-              :style="{width: 'calc(100% / numOfItem)' + 'px', backgroundColor: bgColor}"
+              :style="{
+                width: 'calc(100% / numOfItem)' + 'px',
+                backgroundColor: bgColor,
+              }"
               v-on:mouseover="clearInt()"
               v-on:mouseleave="startInt()"
             >
-              <img
-                v-if="
-                  getImagePath(visibleCards[index].image) !== '' &&
-                  !isLogoInArray
-                "
-                :src="getImagePath(visibleCards[index].image)"
-                class="card-img-top"
-                alt="Card Image"
-              />
-              <img
-                v-if="
-                  getImagePath(visibleCards[index].image) !== '' &&
-                  isLogoInArray
-                "
-                :src="getImagePath(visibleCards[index].image)"
-                class="card-img-top logo"
-                alt="Card Image"
-              />
+              <div class="img-ctn">
+                <img
+                  v-if="
+                    getImagePath(visibleCards[index].image) !== '' &&
+                    !isLogoInArray
+                  "
+                  :src="getImagePath(visibleCards[index].image)"
+                  class="card-img-top"
+                  alt="Card Image"
+                />
+                <img
+                  v-if="
+                    getImagePath(visibleCards[index].image) !== '' &&
+                    isLogoInArray
+                  "
+                  :src="getImagePath(visibleCards[index].image)"
+                  class="card-img-top logo"
+                  alt="Card Image"
+                />
+              </div>
+
               <div class="card-body">
                 <a v-if="tagText || icon" href="#" class="orange-link gap-2">
                   <i :class="`${icon}`"></i> {{ tagText }}</a
@@ -151,8 +159,8 @@ export default {
 
       .card {
         max-width: 25rem;
-        
-        
+        overflow: hidden;
+
         @include flex(column, start, center);
         .logo {
           width: 10rem;
@@ -161,14 +169,24 @@ export default {
           padding: 0;
         }
         border: none;
-        img {
-          border-radius: 0px;
+
+        .img-ctn{
+          overflow: hidden;
+          img {
+            border-radius: 0px;
+            transition: all 0.5s;
+  
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
         }
 
         .card-body {
           width: 100%;
+          z-index: 9999;
           position: relative;
-         
+
           span,
           p {
             color: var(--ms-secondary-color);

@@ -43,7 +43,7 @@ export default {
         <a href="#">read more</a>
       </div>
       <div class="stats gap-5">
-        <div class="progress-bar" v-for="curStat in this.stats">
+        <div class="progress-bar" v-for="curStat in this.stats" :key="curStat">
           <div class="label">
             <label class="fw-bold">{{ curStat.statName }}</label>
             <div class="fw-bold">{{ curStat.percentuage }}%</div>
