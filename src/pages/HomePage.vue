@@ -9,6 +9,7 @@ import { store } from "../store.js";
 import AppPlans from "../components/AppPlans.vue";
 import AppContactHome from "../components/AppContactHome.vue";
 import AppTitle from "../components/AppTitle.vue";
+import AppVideo from '../components/AppVideo.vue';
 
 export default {
   components: {
@@ -21,6 +22,7 @@ export default {
     AppPlans,
     AppContactHome,
     AppTitle,
+    AppVideo,
   },
   created() {
     store.isHeaderHome = true;
@@ -164,6 +166,8 @@ export default {
       :isReadMore="true"
       :numOfItem="3"
     />
+    <AppVideo/>
+    <AppCircleInfo/>
     <AppTitle
       :title="'We can teach you'"
       :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
