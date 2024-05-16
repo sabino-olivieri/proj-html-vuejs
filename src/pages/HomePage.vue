@@ -11,6 +11,7 @@ import AppContactHome from "../components/AppContactHome.vue";
 import AppTitle from "../components/AppTitle.vue";
 import AppVideo from '../components/AppVideo.vue';
 import AppTestimonials from '../components/AppTestimonials.vue';
+import AppCircleInfo from '../components/AppCircleInfo.vue';
 
 export default {
   components: {
@@ -25,6 +26,7 @@ export default {
     AppTitle,
     AppVideo,
     AppTestimonials,
+    AppCircleInfo,
   },
   created() {
     store.isHeaderHome = true;
@@ -174,30 +176,15 @@ export default {
     <AppFounder />
     <AppEventsSection />
     <AppCreativeLeaderSection />
-    <AppTitle
-      :title="'Latest News'"
-      :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
-    />
-    <AppCardCarousel
-      :array="cardImages"
-      :icon="'fa-solid fa-tag'"
-      :tagText="'business, leading'"
-      :isReadMore="true"
-      :numOfItem="3"
-    />
-    <AppTestimonials :array="cardTestimonials" :numOfItem="1"/>
-    <AppVideo/>
-    <AppCircleInfo/>
-    <AppTitle
-      :title="'We can teach you'"
-      :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'"
-    />
-    <AppCardCarousel
-      :array="teacherCard"
-      :icon="'fa-solid fa-share-nodes'"
-      :numOfItem="3"
-    />
-    
+    <AppTitle :title="'Latest News'" :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'" />
+    <AppCardCarousel :array="cardImages" :icon="'fa-solid fa-tag'" :tagText="'business, leading'" :isReadMore="true"
+      :numOfItem="3" />
+    <AppTestimonials :array="cardTestimonials" :numOfItem="1" />
+    <AppVideo />
+    <AppCircleInfo />
+    <AppTitle :title="'We can teach you'" :subTitle="'Lorem ipsum dolor sit amet, consectetur adipiscing elit'" />
+    <AppCardCarousel :array="teacherCard" :icon="'fa-solid fa-share-nodes'" :numOfItem="3" />
+
     <AppContactHome />
     <AppCardCarousel :array="cardLogo" :isLogoInArray="true" :numOfItem="5" />
     <AppPlans />
