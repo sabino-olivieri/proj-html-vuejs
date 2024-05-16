@@ -135,20 +135,21 @@ export default {
 main {
   margin-top: 100px;
   background-color: #fafafa;
-  position: relative;
 
-  .overLaye {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 40px;
-  }
 
   .hero {
     width: 100%;
     height: 80vh;
     overflow: hidden;
+    position: relative;
+
+    .overLaye {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 40px;
+    }
 
     iframe {
       width: 100%;
