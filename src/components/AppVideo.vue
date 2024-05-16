@@ -32,7 +32,7 @@ export default {
 
 
         <div class="ms_overlay d-flex justify-content-center align-items-center" :class="playVideo ? '' : 'ms_hidden'" @click="closeVideo()" >
-            <iframe src="https://player.vimeo.com/video/92850484?h=92cf136c98&color=ff9933&title=0&byline=0&portrait=0"frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>        </div>
+            <iframe v-if="playVideo" src="https://player.vimeo.com/video/92850484?h=92cf136c98&color=ff9933&title=0&byline=0&portrait=0"frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>        </div>
 
 
 
