@@ -132,8 +132,8 @@ export default {
     position: absolute;
     color: var(--ms-secondary-color);
     z-index: 1;
-    font-size: 290px;
-    top: -100px;
+    font-size: 200px;
+    top: -60px;
   }
   .upper-section {
     position: relative;
