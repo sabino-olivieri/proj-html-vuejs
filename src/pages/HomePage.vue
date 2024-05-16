@@ -10,6 +10,7 @@ import AppPlans from "../components/AppPlans.vue";
 import AppContactHome from "../components/AppContactHome.vue";
 import AppTitle from "../components/AppTitle.vue";
 import AppVideo from '../components/AppVideo.vue';
+import AppTestimonials from '../components/AppTestimonials.vue';
 
 export default {
   components: {
@@ -23,6 +24,7 @@ export default {
     AppContactHome,
     AppTitle,
     AppVideo,
+    AppTestimonials,
   },
   created() {
     store.isHeaderHome = true;
@@ -142,6 +144,23 @@ export default {
           image: "../assets/img/card-logo/logo-2.png",
         },
       ],
+      cardTestimonials: [
+        {
+          image: "picture-1.png",
+          name: "Cynthia Clark",
+          cit: "\"Lorem ipsum dolor, sit amet consectetur adipisicing elit.\""
+        },
+        {
+          image: "picture-2.png",
+          name: "Clarice Hastings",
+          cit: "\"Lorem ipsum dolor, sit amet consectetur adipisicing elit.\""
+        },
+        {
+          image: "picture-3.png",
+          name: "Brenda Kelly",
+          cit: "\"Lorem ipsum dolor, sit amet consectetur adipisicing elit.\""
+        },
+      ]
     };
   },
 };
@@ -166,6 +185,7 @@ export default {
       :isReadMore="true"
       :numOfItem="3"
     />
+    <AppTestimonials :array="cardTestimonials" :numOfItem="1"/>
     <AppVideo/>
     <AppCircleInfo/>
     <AppTitle
