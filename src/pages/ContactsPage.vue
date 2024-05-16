@@ -42,9 +42,11 @@ export default {
     <main>
       <!-- Hero  -->
       <div class="hero">
-        <iframe
+        <!-- <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d342561.8659422793!2d12.13256246650666!3d45.32782109592909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1715695055673!5m2!1sit!2sit"
-          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=10-pbxr9f2aubMtBtzeS2wU8Vk9P7WzY&ehbc=2E312F&noprof=1"></iframe>
       </div>
       <!-- /Hero  -->
 
@@ -131,15 +133,20 @@ main {
   background-color: #fafafa;
 
   .hero {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
 
     iframe {
       width: 100%;
       height: 80vh;
+      position: relative !important;
+      top: -70px;
     }
   }
 
   .contact-us-top {
-    padding: 5rem 0;
+    padding: 0 0 4rem;
 
     .ms_title-top {
 
