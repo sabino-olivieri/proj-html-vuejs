@@ -14,7 +14,10 @@ export default {
 
   methods: {
     getImagePath(image) {
-      return new URL(`../assets/img/card-testimonials/${image}`, import.meta.url).href;
+      return new URL(
+        `../assets/img/card-testimonials/${image}`,
+        import.meta.url
+      ).href;
     },
     showNext() {
       this.activeIndex === this.array.length - 1
@@ -42,7 +45,9 @@ export default {
 
 <template>
   <div class="container-fluid">
-    <div class="upper-section" v-on:mouseover="clearInt()" v-on:mouseleave="startInt()">
+    <span class="overlay"></span>
+    <span class="testimonials">Testimonials.</span>
+    <div class="upper-section">
       <button
         class="prevBtn"
         type="button"
@@ -53,10 +58,44 @@ export default {
         <i class="fa-solid fa-arrow-left"></i>
         <span class="visually-hidden">Previous</span>
       </button>
-      <div class="slider gap-4">
+      <div
+        class="slider gap-4"
+        v-on:mouseover="clearInt()"
+        v-on:mouseleave="startInt()"
+      >
         <img :src="getImagePath(array[this.activeIndex].image)" alt="" />
-        <h4>{{array[this.activeIndex].name}}</h4>
+        <h4>{{ array[this.activeIndex].name }}</h4>
         <span>{{ array[this.activeIndex].cit }}</span>
+        <div class="button-list">
+          <span class="curPage">0{{ this.activeIndex + 1 }}</span>
+          <ul>
+            <li>
+              <button
+                @click="this.activeIndex = 0"
+                :class="{ active: this.activeIndex === 0 }"
+              >
+                &nbsp;
+              </button>
+            </li>
+            <li>
+              <button
+                @click="this.activeIndex = 1"
+                :class="{ active: this.activeIndex === 1 }"
+              >
+                &nbsp;
+              </button>
+            </li>
+            <li>
+              <button
+                @click="this.activeIndex = 2"
+                :class="{ active: this.activeIndex === 2 }"
+              >
+                &nbsp;
+              </button>
+            </li>
+          </ul>
+          <span class="curPage">03</span>
+        </div>
       </div>
       <button
         class="nextBtn"
@@ -69,13 +108,6 @@ export default {
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div class="button-list">
-      <ul>
-        <li><button @click="this.activeIndex = 0" :class="{'active': this.activeIndex === 0}">&nbsp;</button></li>
-        <li><button @click="this.activeIndex = 1" :class="{'active': this.activeIndex === 1}">&nbsp;</button></li>
-        <li><button @click="this.activeIndex = 2" :class="{'active': this.activeIndex === 2}">&nbsp;</button></li>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -84,13 +116,29 @@ export default {
 
 .container-fluid {
   @include flex(column, center, center);
+  position: relative;
   //   height: 600px;
-//   background-color: lightblue;
+  //   background-color: lightblue;
   padding: 0;
-  background-color: rgba($color: #000000, $alpha: 0.9);
 
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.9);
+    z-index: 2;
+  }
+  .testimonials {
+    position: absolute;
+    color: var(--ms-secondary-color);
+    z-index: 1;
+    font-size: 290px;
+    top: -100px;
+  }
   .upper-section {
-    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+    padding-top: 40px;
 
     @include flex(row, space-between, center);
     width: 100%;
@@ -109,40 +157,56 @@ export default {
     }
 
     .slider {
-      height: 400px;
+      min-height: 500px;
       width: 800px;
       //   background-color: black;
-    //   border: 2px solid white;
-      @include flex(column,center,center);
+      //   border: 2px solid white;
+      @include flex(column, center, center);
 
-
-      h4{
+      h4 {
         color: white;
         font-weight: bold;
       }
 
-      span{
+      span {
         color: var(--ms-secondary-color);
+        font-size: 30px;
       }
 
-      
-      
-    }
-  }
-  .button-list {
-    width: 310px;
-    ul {
-      @include flex(row, space-between, center);
+      .button-list {
+        @include flex(row, center, center);
+        margin-bottom: 20px;
 
-      button {
-        width: 100px;
-        height: 2px;
-        border: none;
-        background-color: lightgrey;
-      }
+        position: relative;
+        z-index: 2;
+        width: 310px;
+        .curPage {
+          font-size: 20px;
+          color: gray;
+          align-self: center;
+          margin: 5px;
+        }
+        ul {
+          @include flex(row, space-between, center);
 
-      .active{
-        background-color: gray;
+          li {
+            @include flex(row, center, center);
+            button {
+              width: 50px;
+              height: 1px;
+              border: none;
+              background-color: gray;
+              margin-top: 15px;
+              &:hover {
+                background-color: white;
+              }
+            }
+
+            .active {
+              background-color: white;
+            }
+          }
+        }
       }
     }
   }
