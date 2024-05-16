@@ -1,9 +1,9 @@
 <script>
-import {store} from "../store";
+import { store } from "../store";
 import AppSidebar from './AppSidebar.vue';
 
 export default {
-  components: { AppSidebar },
+    components: { AppSidebar },
     data() {
         return {
             store,
@@ -39,14 +39,53 @@ export default {
                     subTitle: [],
                     link: "element"
                 },
-            ]
+
+            ],
+            
+            viewButton: false,
         }
+
+        
+
+
+    },
+
+    methods: {
+        getLink(sublink) {
+            if (sublink === "About us") {
+                return { name: 'about' }
+            } else if (sublink === "Contact us") {
+                return { name: 'contacts' }
+            } else {
+                return { name: '' }
+            }
+        },
+
+        viewButtonTop() {
+            if (window.scrollY > window.innerHeight) {
+
+                this.viewButton = true;
+                
+            } else {
+
+                this.viewButton = false;
+            }
+
+
+        }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', this.viewButtonTop)
     }
+
 }
 </script>
 
 <template>
-    <header class="d-flex align-items-center" :class="store.isHeaderHome ? 'header-home' : 'header-normal' ">
+    <span id="top"></span>
+    <header class="d-flex align-items-center" :class="store.isHeaderHome ? 'header-home' : 'header-normal'">
+
         <AppSidebar />
         <div class="container">
             <div class="row justify-content-between align-items-center">
@@ -61,38 +100,51 @@ export default {
                     <div class="ms_search-bar d-flex align-items-center" :class="searchIsVisible ? '' : 'ms_hidden'">
                         <input type="text" placeholder="Search...">
                         <i class="fa-solid fa-x" @click="searchIsVisible = false"></i>
+                        <div class="ms_overlay" :class="searchIsVisible ? '' : 'ms_hidden'"
+                            @click="searchIsVisible = false"></div>
                     </div>
-                    <div class="ms_overlay" :class="searchIsVisible ? '' : 'ms_hidden'" @click="searchIsVisible = false"></div>
+
 
                     <ul class="d-flex align-items-center gap-5">
                         <li class="d-flex align-items-center ms_nav" v-for="link in navList">
-                            <router-link :to="{ name: link.link }" class="nav-link">{{ link.title.toUpperCase()
-                                }}</router-link>
+                            <router-link :to="{ name: link.link }" class="nav-link">{{
+                                link.title.toUpperCase()}}</router-link>
                             <div class="sub-menu-container">
                                 <div class="sub-menu">
                                     <ul>
-                                        <li v-for="sublink in link.subTitle"> {{ sublink }}</li>
+                                        <li v-for="sublink in link.subTitle">
+                                            <router-link :to="getLink(sublink)">
+                                                {{ sublink }}
+                                            </router-link>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
-                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-magnifying-glass" @click="searchIsVisible = true"></i></li>
-                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-bars" @click="store.isSidebar = true"></i></li>
+                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-magnifying-glass"
+                                @click="searchIsVisible = true"></i></li>
+                        <li class="d-flex align-items-center p-2"><i class="fa-solid fa-bars"
+                                @click="store.isSidebar = true"></i></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
+
+    <a href="#top" class="button-top " :class=" viewButton ? '' : 'ms_hidden'">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 </template>
 
 
 <style lang="scss" scoped>
 
+
 .header-home {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9995;
 }
 
 .header-normal {
@@ -100,7 +152,7 @@ export default {
     top: 0;
     left: 0;
     background-color: white;
-    z-index: 999;
+    z-index: 9995;
 }
 
 header {
@@ -129,35 +181,36 @@ header {
             color: var(--ms-primary-color);
         }
     }
+
     .ms_nav .nav-link {
         transition: color 0.5s;
     }
 
     .ms_nav .nav-link:hover {
         color: var(--ms-primary-color);
-            
 
-            &::before {
-                // font-size: 0.9rem;
-                width: 100px;
-            }
+
+        &::before {
+            // font-size: 0.9rem;
+            width: 100px;
         }
+    }
 
-        .ms_nav .nav-link::before {
-            content: "\f178";
-            position: absolute;
-            display: inline-block;
-            font: var(--fa-font-solid);
-            left: -1.3rem;
-            color: var(--ms-primary-color);
-            font-size: 1.2rem;
-            overflow: hidden;
-            width: 0;
-            transition: all 0.5s;
-            cursor: pointer;
+    .ms_nav .nav-link::before {
+        content: "\f178";
+        position: absolute;
+        display: inline-block;
+        font: var(--fa-font-solid);
+        left: -1.3rem;
+        color: var(--ms-primary-color);
+        font-size: 1.2rem;
+        overflow: hidden;
+        width: 0;
+        transition: all 0.5s;
+        cursor: pointer;
 
 
-        }
+    }
 
     ul {
         list-style: none;
@@ -172,12 +225,7 @@ header {
             position: relative;
             height: 100%;
 
-            &:hover .sub-menu-container {
-                height: 300px;
-                opacity: 1;
-                visibility: visible;
-                overflow: visible;
-            }
+
 
             .sub-menu-container {
                 color: #bdbdbd;
@@ -186,20 +234,19 @@ header {
                 left: -14px;
                 top: 100%;
                 height: 0px;
-                visibility: hidden;
                 overflow: hidden;
-                
                 z-index: 10;
-                transition: all 0.5s ease;
-                
+                transition: all 0.5s;
+
 
                 .sub-menu {
-                    
+
                     position: relative;
                     display: block;
                     padding: 0;
                     margin: 0;
                     z-index: 997;
+
 
                     ul {
 
@@ -211,21 +258,36 @@ header {
                         width: 300px;
 
                         li {
-                        padding: 10px 30px;
-                        font-weight: 400;
-                        font-size: 1rem;
-                        cursor: pointer;
 
-                        &:hover {
-                            color: white;
+                            a {
+                                text-transform: none;
+                                color: unset;
+                                font-weight: unset;
+                            }
+
+                            padding: 10px 30px;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: white;
+                            }
+
                         }
-                        
-                    }
                     }
 
 
                 }
             }
+
+            &:hover .sub-menu-container {
+                height: 100vh;
+                // visibility: visible;
+                // overflow:inherit;
+            }
+
+
         }
 
 
@@ -235,14 +297,15 @@ header {
 
         .router-link-active {
             color: var(--ms-primary-color);
+
             &::after {
-            content: "\f178";
-            position: absolute;
-            font: var(--fa-font-solid);
-            left: -1.3rem;
-            color: var(--ms-primary-color);
-            font-size: 1.2rem;
-            width: auto;
+                content: "\f178";
+                position: absolute;
+                font: var(--fa-font-solid);
+                left: -1.3rem;
+                color: var(--ms-primary-color);
+                font-size: 1.2rem;
+                width: auto;
             }
         }
     }
@@ -268,14 +331,15 @@ header {
             }
 
         }
-        .fa-x{
+
+        .fa-x {
             position: absolute;
             right: 30px;
-        } 
+        }
     }
 
     .ms_overlay {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         height: 100vh;
@@ -284,11 +348,35 @@ header {
     }
 
     .ms_hidden {
-    width: 0;
-    opacity: 0;
-    z-index: -1;
-    overflow: hidden;
-}
+        width: 0;
+        opacity: 0;
+        z-index: -1;
+        overflow: hidden;
+    }
 
 }
+.button-top {
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    color: var(--ms-primary-color);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.203);
+    position: fixed;
+    z-index: 10;
+    bottom: 30px;
+    right: 30px;
+    transition: all 0.5s;
+}
+
+.ms_hidden {
+        width: 0;
+        opacity: 0;
+        z-index: -1;
+        overflow: hidden;
+    }
 </style>

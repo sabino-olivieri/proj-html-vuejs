@@ -7,13 +7,18 @@ export default {
         }
     },
 
-    mounted() {
-        window.addEventListener('scroll', this.closeSidebar);
-    },
-
     methods: {
         closeSidebar() {
-            store.isSidebar = false
+            store.isSidebar = false;
+            window.removeEventListener('scroll', this.closed);
+        },
+
+        isOpen(){
+            window.addEventListener('scroll', this.closeSidebar);
+        },
+
+        closed() {
+            console.log("chiuso");
         }
     }
 
@@ -24,7 +29,7 @@ export default {
 
 
     <div class="ms_overlay" :class="store.isSidebar ? '' : 'ms_hidden'" @click="closeSidebar()">
-        <div class="ms_sidebar text-center" :class="store.isSidebar ? '' : 'ms_hidden'" @click.stop="">
+        <div class="ms_sidebar text-center" :class="store.isSidebar ? isOpen() : 'ms_hidden'" @click.stop="">
             <i class="fa-solid fa-x" @click="store.isSidebar = false"></i>
             <img src="../assets/img/logo-side.png" alt="">
             <div class="d-flex justify-content-center">
