@@ -5,6 +5,16 @@ export default {
         return {
             store,
         }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', this.closeSidebar);
+    },
+
+    methods: {
+        closeSidebar() {
+            store.isSidebar = false
+        }
     }
 
 }
@@ -13,7 +23,7 @@ export default {
 <template>
 
 
-    <div class="ms_overlay" :class="store.isSidebar ? '' : 'ms_hidden'" @click="store.isSidebar = false">
+    <div class="ms_overlay" :class="store.isSidebar ? '' : 'ms_hidden'" @click="closeSidebar()">
         <div class="ms_sidebar text-center" :class="store.isSidebar ? '' : 'ms_hidden'" @click.stop="">
             <i class="fa-solid fa-x" @click="store.isSidebar = false"></i>
             <img src="../assets/img/logo-side.png" alt="">
@@ -147,7 +157,7 @@ export default {
     top: 0;
     right: 0;
     width: 100%;
-    height: 100vh;
+    height: 150vh;
 }
 
 .ms_hidden {
