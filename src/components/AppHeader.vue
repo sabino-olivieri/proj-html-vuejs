@@ -282,7 +282,7 @@ header {
             }
 
             &:hover .sub-menu-container {
-                height: 100vh;
+                height: 85vh;
                 // visibility: visible;
                 // overflow:inherit;
             }
