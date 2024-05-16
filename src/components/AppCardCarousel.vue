@@ -56,79 +56,55 @@ export default {
       <div class="carousel-inner">
         <div class="carousel-item gap-4">
           <div v-for="index in numOfItem" :key="index">
-            <div
-              class="card"
-              :style="{
-                width: 'calc(100% / numOfItem)' + 'px',
-                backgroundColor: bgColor,
-              }"
-              v-on:mouseover="clearInt()"
-              v-on:mouseleave="startInt()"
-            >
+            <div class="card" :style="{
+              width: 'calc(100% / numOfItem)' + 'px',
+              backgroundColor: bgColor,
+            }" v-on:mouseover="clearInt()" v-on:mouseleave="startInt()">
               <div class="img-ctn">
-                <img
-                  v-if="
-                    getImagePath(visibleCards[index].image) !== '' &&
-                    !isLogoInArray
-                  "
-                  :src="getImagePath(visibleCards[index].image)"
-                  class="card-img-top"
-                  alt="Card Image"
-                />
-                <img
-                  v-if="
-                    getImagePath(visibleCards[index].image) !== '' &&
-                    isLogoInArray
-                  "
-                  :src="getImagePath(visibleCards[index].image)"
-                  class="card-img-top logo"
-                  alt="Card Image"
-                />
+                <img v-if="
+                  getImagePath(visibleCards[index].image) !== '' &&
+                  !isLogoInArray
+                " :src="getImagePath(visibleCards[index].image)" class="card-img-top" alt="Card Image" />
+                <img v-if="
+                  getImagePath(visibleCards[index].image) !== '' &&
+                  isLogoInArray
+                " :src="getImagePath(visibleCards[index].image)" class="card-img-top logo" alt="Card Image" />
               </div>
 
               <div class="card-body">
-                <a v-if="tagText || icon" href="#" class="orange-link gap-2">
-                  <i :class="`${icon}`"></i> {{ tagText }}</a
-                >
+                <a v-if="tagText" href="#" class="orange-link gap-2">
+                  <i :class="`${icon}`"></i> {{ tagText }}</a>
+                <a v-else-if="icon" href="#" class="orange-link">
+                  <span class="hover-soc-ctn">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                  </span>
+                  <i :class="`${icon}`"></i>
+                </a>
+
                 <span v-if="visibleCards[index].date" class="card-date">{{
                   visibleCards[index].date
-                }}</span>
-                <h4
-                  v-if="visibleCards[index].title"
-                  class="card-title fw-bold fs-2"
-                >
+                  }}</span>
+                <h4 v-if="visibleCards[index].title" class="card-title fw-bold fs-2">
                   {{ visibleCards[index].title }}
                 </h4>
                 <p v-if="visibleCards[index].text" class="card-text">
                   {{ visibleCards[index].text }}
                 </p>
-                <a v-if="isReadMore" href="#" class="btn fw-bold arrowHoverText"
-                  >READ MORE</a
-                >
+                <a v-if="isReadMore" href="#" class="btn fw-bold arrowHoverText">READ MORE</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button
-        v-if="!isLogoInArray"
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carousel"
-        data-bs-slide="prev"
-        @click="showPrev()"
-      >
+      <button v-if="!isLogoInArray" class="carousel-control-prev" type="button" data-bs-target="#carousel"
+        data-bs-slide="prev" @click="showPrev()">
         <i class="fa-solid fa-arrow-left"></i>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button
-        v-if="!isLogoInArray"
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carousel"
-        data-bs-slide="next"
-        @click="showNext()"
-      >
+      <button v-if="!isLogoInArray" class="carousel-control-next" type="button" data-bs-target="#carousel"
+        data-bs-slide="next" @click="showNext()">
         <i class="fa-solid fa-arrow-right"></i>
         <span class="visually-hidden">Next</span>
       </button>
@@ -162,20 +138,24 @@ export default {
         overflow: hidden;
 
         @include flex(column, start, center);
+
         .logo {
           width: 10rem;
         }
+
         a {
           padding: 0;
         }
+
         border: none;
 
-        .img-ctn{
+        .img-ctn {
           overflow: hidden;
+
           img {
             border-radius: 0px;
             transition: all 0.5s;
-  
+
             &:hover {
               transform: scale(1.1);
             }
@@ -204,6 +184,33 @@ export default {
             i {
               font-size: smaller;
               color: white;
+            }
+
+            .hover-soc-ctn {
+              margin-left: -30px;
+
+              i {
+                color: var(--ms-primary-color);
+                background-color: white;
+                width: 20px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                line-height: 20px;
+                text-align: center;
+                margin-right: 10px;
+                overflow: hidden;
+                width: 0;
+                transition: all 0.5s;
+              }
+            }
+
+            &:hover .hover-soc-ctn {
+              margin-left: -15px;
+            }
+
+            &:hover .hover-soc-ctn i {
+              overflow: visible;
+              width: 20px;
             }
           }
         }
