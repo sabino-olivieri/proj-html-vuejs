@@ -164,7 +164,7 @@ export default {
 
         .card-body {
           width: 100%;
-          z-index: 9999;
+          z-index: 999;
           position: relative;
 
           span,
