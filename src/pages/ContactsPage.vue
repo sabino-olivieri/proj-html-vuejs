@@ -1,5 +1,6 @@
 <script>
 import AppButton from '../components/AppButton.vue'
+import { store } from "../store.js";
 
 export default {
   components: {
@@ -8,6 +9,7 @@ export default {
   },
   data() {
     return {
+      store,
       icons: ['fa-solid fa-location-dot', 'fa-solid fa-phone', 'fa-regular fa-envelope'],
       contact: [
         {
@@ -33,7 +35,10 @@ export default {
         },
       ]
     }
-  }
+  },
+  created() {
+    store.isHeaderHome = true;
+  },
 }
 </script>
 
@@ -42,11 +47,10 @@ export default {
     <main>
       <!-- Hero  -->
       <div class="hero">
-        <!-- <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d342561.8659422793!2d12.13256246650666!3d45.32782109592909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1715695055673!5m2!1sit!2sit"
-          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
         <iframe
           src="https://www.google.com/maps/d/embed?mid=10-pbxr9f2aubMtBtzeS2wU8Vk9P7WzY&ehbc=2E312F&noprof=1"></iframe>
+
+        <div class="overLaye"></div>
       </div>
       <!-- /Hero  -->
 
@@ -131,6 +135,15 @@ export default {
 main {
   margin-top: 100px;
   background-color: #fafafa;
+  position: relative;
+
+  .overLaye {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 40px;
+  }
 
   .hero {
     width: 100%;
